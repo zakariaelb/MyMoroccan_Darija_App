@@ -1,0 +1,2 @@
+rootProject.name='MyDarija APP'
+include ':app'
