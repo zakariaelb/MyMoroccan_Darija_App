@@ -16,26 +16,27 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="@string/Numbers" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="FamilyList"
+            android:text="@string/Family" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="ColorList"
+            android:text="@string/Colors" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:onClick="PhrasesList"
+            android:text="@string/Phrases" />
     </LinearLayout>
-
-</LinearLayout>
 </ScrollView>

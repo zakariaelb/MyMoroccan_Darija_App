@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ColorsActivity"></activity>
-        <activity android:name=".FamilyActivity" />
-        <activity android:name=".NumberActivity" />
-        <activity android:name=".PhrasesActivity" />
+        <activity android:name=".ColorsActivity" android:label="@string/Colors"/>
+        <activity android:name=".FamilyActivity" android:label="@string/Family"/>
+        <activity android:name=".NumberActivity" android:label="@string/Numbers"/>
+        <activity android:name=".PhrasesActivity" android:label="@string/Phrases"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
