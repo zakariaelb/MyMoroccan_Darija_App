@@ -1,8 +1,7 @@
 package digiplus.ma.mydarijaapp;
 
 import android.os.Bundle;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,25 +12,26 @@ public class NumberActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_number);
-        LinearLayout NumRootView = (LinearLayout) findViewById(R.id.RootView);
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("One");
-        words.add("Two");
-        words.add("Three");
-        words.add("Four");
-        words.add("Five");
-        words.add("Six");
-        words.add("Seven");
-        words.add("Eight");
-        words.add("Nine");
-        words.add("Ten");
+        setContentView(R.layout.words_list);
+        //LinearLayout NumRootView = (LinearLayout) findViewById(R.id.RootView);
+        ArrayList<Words> word_s = new ArrayList<Words>();
+        //Words w = new Words("One, Ouahed");
+        //Word_s.add(w);
+        word_s.add(new Words("One", "Ouahed"));
+        word_s.add(new Words("Tow", "Jouj"));
+        word_s.add(new Words("Three", "Talata"));
+        word_s.add(new Words("Four", "Rabaa"));
+        word_s.add(new Words("Five", "Khamssa"));
+        word_s.add(new Words("Six", "Sst'a"));
+        word_s.add(new Words("Seven", "Sab'a"));
+        word_s.add(new Words("Eight", "Tmaniya"));
+        word_s.add(new Words("Nine", "Tiss'a"));
+        word_s.add(new Words("Ten", "Achara"));
+        //words.add("One");
+        //words.add("Two");
 
-        for ( int Idx = 0; Idx < words.size(); Idx++){
-            TextView N_wordView = new TextView(this);
-            N_wordView.setText(words.get(Idx));
-            NumRootView.addView(N_wordView);
-        }
-
+        WordAdapter itemsAdapter = new WordAdapter(this, word_s);
+        ListView listView = (ListView) findViewById(R.id.List);
+        listView.setAdapter(itemsAdapter);
     }
 }
