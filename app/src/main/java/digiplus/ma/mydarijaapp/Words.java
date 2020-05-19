@@ -3,15 +3,14 @@ package digiplus.ma.mydarijaapp;
 public class Words {
 
     private String mDefaultTranslation;
-
     private String mDarijaTranslation;
 
-    public Words(String DefaultTranslation, String DarijaTranslation) {
+    public Words(String DTranslation, String DefaultTranslation) {
                 mDefaultTranslation = DefaultTranslation;
-                mDarijaTranslation = DarijaTranslation;
+                mDarijaTranslation = DTranslation;
     }
 
-    public String getDarijaTranslation() {
+    public String getDTranslation() {
         return mDarijaTranslation;
     }
     public String getDefaultTranslation() {

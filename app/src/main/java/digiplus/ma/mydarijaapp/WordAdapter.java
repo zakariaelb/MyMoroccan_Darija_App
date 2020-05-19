@@ -7,33 +7,41 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class WordAdapter extends ArrayAdapter<Words> {
 
-    public WordAdapter(Activity context, ArrayList<Words> itemsAdapter) {
-        super(context, 0, itemsAdapter);
+    private static final String LOG_TAG = WordAdapter.class.getSimpleName();
+
+    public WordAdapter(Activity context, ArrayList<Words> items_Adapter) {
+        super(context, 0, items_Adapter);
     }
 
-    @NonNull
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View listItemView = convertView;
+        if(listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.list_items, parent, false);
+        }
+
+    /** @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //return super.getView(position, convertView, parent);
-        /*             */
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_items, parent, false);
         }
-        Words CurrentWords = getItem(position);
+        */
 
-        //TextView DarijaTextView = (TextView) listItemView.findViewById(R.id.darija_translate);
-        //DarijaTextView.setText(CurrentWords.getDarijaTranslation());
-        //>>
+        Words CurrentWordPosition = getItem(position);
+        TextView DarijaTextView = (TextView) listItemView.findViewById(R.id.darija_translate);
+        DarijaTextView.setText(CurrentWordPosition.getDTranslation());
+
         TextView DefaultTextView = (TextView) listItemView.findViewById(R.id.default_translate);
-        DefaultTextView.setText(CurrentWords.getDefaultTranslation());
+        DefaultTextView.setText(CurrentWordPosition.getDefaultTranslation());
         return listItemView;
     }
 }
