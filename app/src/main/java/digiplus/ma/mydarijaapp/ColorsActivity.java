@@ -14,13 +14,13 @@ public class ColorsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
         ArrayList<Words> Colors = new ArrayList<Words>();
-        Colors.add(new Words("Red", "Hmar"));
-        Colors.add(new Words("Green", "Khdar"));
-        Colors.add(new Words("Brown", "Kahoui"));
-        Colors.add(new Words("Gray", "Rmadi"));
-        Colors.add(new Words("Black", "K hal"));
-        Colors.add(new Words("White ", "B yad"));
-        Colors.add(new Words("Yellow", "Ssfar"));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Red", "Hmar"));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Green", "Khdar"));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Brown", "Kahoui"));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Gray", "Rmadi"));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Black", "K hal"));
+        Colors.add(new Words(R.mipmap.ic_launcher,"White ", "B yad"));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Yellow", "Ssfar"));
 
         WordAdapter word_Adapter = new WordAdapter(this, Colors);
 

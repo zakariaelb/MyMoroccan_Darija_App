@@ -17,16 +17,16 @@ public class NumberActivity extends AppCompatActivity {
         ArrayList<Words> word_s = new ArrayList<Words>();
         //Words w = new Words("One, Ouahed");
         //Word_s.add(w);
-        word_s.add(new Words("One", "Ouahed"));
-        word_s.add(new Words("Tow", "Jouj"));
-        word_s.add(new Words("Three", "Talata"));
-        word_s.add(new Words("Four", "Rabaa"));
-        word_s.add(new Words("Five", "Khamssa"));
-        word_s.add(new Words("Six", "Sst'a"));
-        word_s.add(new Words("Seven", "Sab'a"));
-        word_s.add(new Words("Eight", "Tmaniya"));
-        word_s.add(new Words("Nine", "Tiss'a"));
-        word_s.add(new Words("Ten", "Achara"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"One", "Ouahed"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Tow", "Jouj"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Three", "Talata"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Four", "Rabaa"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Five", "Khamssa"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Six", "Sst'a"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Seven", "Sab'a"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Eight", "Tmaniya"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Nine", "Tiss'a"));
+        word_s.add(new Words(R.mipmap.ic_launcher,"Ten", "Achara"));
         //words.add("One");
         //words.add("Two");
 
