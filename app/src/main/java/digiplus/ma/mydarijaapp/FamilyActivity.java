@@ -25,7 +25,7 @@ public class FamilyActivity extends AppCompatActivity {
         Colors.add(new Words(R.mipmap.ic_launcher,"Grandmother", "Jjda"));
         Colors.add(new Words(R.mipmap.ic_launcher,"grandfather", "Jjdi"));
 
-        WordAdapter word_Adapter = new WordAdapter(this, Colors);
+        WordAdapter word_Adapter = new WordAdapter(this, Colors, R.color.Family);
 
         ListView FamilyView = (ListView) findViewById(R.id.List);
         FamilyView.setAdapter(word_Adapter);

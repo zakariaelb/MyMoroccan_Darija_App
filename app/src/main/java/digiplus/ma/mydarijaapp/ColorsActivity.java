@@ -22,7 +22,7 @@ public class ColorsActivity extends AppCompatActivity {
         Colors.add(new Words(R.mipmap.ic_launcher,"White ", "B yad"));
         Colors.add(new Words(R.mipmap.ic_launcher,"Yellow", "Ssfar"));
 
-        WordAdapter word_Adapter = new WordAdapter(this, Colors);
+        WordAdapter word_Adapter = new WordAdapter(this, Colors, R.color.Colors);
 
         ListView ColorsView = (ListView) findViewById(R.id.List);
         ColorsView.setAdapter(word_Adapter);

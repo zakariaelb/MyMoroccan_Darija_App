@@ -30,7 +30,7 @@ public class NumberActivity extends AppCompatActivity {
         //words.add("One");
         //words.add("Two");
 
-        WordAdapter itemsAdapter = new WordAdapter(this, word_s);
+        WordAdapter itemsAdapter = new WordAdapter(this, word_s, R.color.Number);
         ListView listView = (ListView) findViewById(R.id.List);
         listView.setAdapter(itemsAdapter);
     }
