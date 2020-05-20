@@ -1,6 +1,9 @@
 package digiplus.ma.mydarijaapp;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 
 public class NumberActivity extends AppCompatActivity {
 
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,5 +37,13 @@ public class NumberActivity extends AppCompatActivity {
         WordAdapter itemsAdapter = new WordAdapter(this, word_s, R.color.Number);
         ListView listView = (ListView) findViewById(R.id.List);
         listView.setAdapter(itemsAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(NumberActivity.this, "Hello ! ", Toast.LENGTH_LONG).show();
+                mediaPlayer = MediaPlayer.create(NumberActivity.this, R.raw.color_red);
+                mediaPlayer.start();
+            }
+        });
     }
 }
