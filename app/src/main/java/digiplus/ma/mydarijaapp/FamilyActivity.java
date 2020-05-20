@@ -1,6 +1,9 @@
 package digiplus.ma.mydarijaapp;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,27 +11,38 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
-
+    private MediaPlayer mediaPlayer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.words_list);
-        ArrayList<Words> Colors = new ArrayList<Words>();
-        Colors.add(new Words(R.mipmap.ic_launcher,"Father", "abb"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Mother", "Omm"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Son", "Oueld"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Daughter", "Bent"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Older brother", "lkho lekbir"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Younger brother", "lkho seghir"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Older sister", "okht lkbira"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Younger sister", "okht seghira"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"Grandmother", "Jjda"));
-        Colors.add(new Words(R.mipmap.ic_launcher,"grandfather", "Jjdi"));
+        final ArrayList<Words> Colors = new ArrayList<Words>();
+        Colors.add(new Words(R.mipmap.ic_launcher,"Father", "abb", R.raw.color_black));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Mother", "Omm", R.raw.color_red));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Son", "Oueld", R.raw.color_white));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Daughter", "Bent", R.raw.color_black));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Older brother", "lkho lekbir", R.raw.color_red));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Younger brother", "lkho seghir", R.raw.color_white));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Older sister", "okht lkbira", R.raw.color_black));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Younger sister", "okht seghira", R.raw.color_red));
+        Colors.add(new Words(R.mipmap.ic_launcher,"Grandmother", "Jjda", R.raw.color_white));
+        Colors.add(new Words(R.mipmap.ic_launcher,"grandfather", "Jjdi", R.raw.color_black));
 
         WordAdapter word_Adapter = new WordAdapter(this, Colors, R.color.Family);
 
         ListView FamilyView = (ListView) findViewById(R.id.List);
         FamilyView.setAdapter(word_Adapter);
+        FamilyView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //Toast.makeText(NumberActivity.this, "Hello ! ", Toast.LENGTH_LONG).show();
+                Words Words = Colors.get(position);
+                //mediaPlayer = MediaPlayer.create(NumberActivity.this, R.raw.color_red);
+                mediaPlayer = MediaPlayer.create(FamilyActivity.this, Words.getmAudioRES());
+                mediaPlayer.start();
+            }
+        });
+
     }
 }
 
