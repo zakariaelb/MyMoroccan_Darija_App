@@ -30,4 +30,6 @@ public class Words {
     public int getImage(){return mImage;}
     public boolean HasImage(){ return mImage != NO_IMAGE;}
     public int getmAudioRES(){return mAudioRES;}
+
+
 }
