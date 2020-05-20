@@ -52,7 +52,13 @@ public class ColorsActivity extends AppCompatActivity {
         });
     }
 
-        /**
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
+    /**
          * HELPER METHOD Clean up the media player by releasing its resources.
          */
         private void releaseMediaPlayer() {
