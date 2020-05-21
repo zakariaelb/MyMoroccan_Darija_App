@@ -17,7 +17,11 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NumberFragment extends Fragment {
+public class ColorsFragment extends Fragment {
+
+    public ColorsFragment() {
+        // Required empty public constructor
+    }
 
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
@@ -52,46 +56,41 @@ public class NumberFragment extends Fragment {
         }
     };
 
-
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
         }
     };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View rootView = inflater.inflate(R.layout.words_list, container, false);
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
-        //LinearLayout NumRootView = (LinearLayout) findViewById(R.id.RootView);
-        final ArrayList<Words> word_s = new ArrayList<Words>();
-        //Words w = new Words("One, Ouahed");
-        //Word_s.add(w);
-        word_s.add(new Words(R.mipmap.ic_launcher, "One", "Ouahed", R.raw.color_black));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Tow", "Jouj", R.raw.color_red));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Three", "Talata", R.raw.color_white));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Four", "Rabaa", R.raw.color_black));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Five", "Khamssa", R.raw.color_red));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Six", "Sst'a", R.raw.color_white));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Seven", "Sab'a", R.raw.color_black));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Eight", "Tmaniya", R.raw.color_red));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Nine", "Tiss'a", R.raw.color_white));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Ten", "Achara", R.raw.color_black));
-        //words.add("One");
-        //words.add("Two");
 
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), word_s, R.color.Number);
-        ListView ListView = (ListView) rootView.findViewById(R.id.List);
-        ListView.setAdapter(itemsAdapter);
-        ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        final ArrayList<Words> Colors = new ArrayList<Words>();
+        Colors.add(new Words(R.mipmap.ic_launcher, "Red", "Hmar", R.raw.color_black));
+        Colors.add(new Words(R.mipmap.ic_launcher, "Green", "Khdar", R.raw.color_red));
+        Colors.add(new Words(R.mipmap.ic_launcher, "Brown", "Kahoui", R.raw.color_white));
+        Colors.add(new Words(R.mipmap.ic_launcher, "Gray", "Rmadi", R.raw.color_black));
+        Colors.add(new Words(R.mipmap.ic_launcher, "Black", "K hal", R.raw.color_red));
+        Colors.add(new Words(R.mipmap.ic_launcher, "White ", "B yad", R.raw.color_white));
+        Colors.add(new Words(R.mipmap.ic_launcher, "Yellow", "Ssfar", R.raw.color_black));
+
+        WordAdapter word_Adapter = new WordAdapter(getActivity(), Colors, R.color.Colors);
+
+        ListView ColorsView = (ListView) rootView.findViewById(R.id.List);
+        ColorsView.setAdapter(word_Adapter);
+
+        ColorsView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(NumberActivity.this, "Hello ! ", Toast.LENGTH_LONG).show();
                 releaseMediaPlayer();
-                Words Words = word_s.get(position);
+
+                Words Words = Colors.get(position);
 
                 // Request audio focus so in order to play the audio file. The app needs to play a
                 // short audio file, so we will request audio focus with a short amount of time
@@ -118,33 +117,32 @@ public class NumberFragment extends Fragment {
 
         return rootView;
     }
-
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        releaseMediaPlayer();
-    }
-
-    /**
-     * HELPER METHOD Clean up the media player by releasing its resources.
-     */
-    private void releaseMediaPlayer() {
-        // If the media player is not null, then it may be currently playing a sound.
-        if (mMediaPlayer != null) {
-            // Regardless of the current state of the media player, release its resources
-            // because we no longer need it.
-            mMediaPlayer.release();
-
-            // Set the media player back to null. For our code, we've decided that
-            // setting the media player to null is an easy way to tell that the media player
-            // is not configured to play an audio file at the moment.
-            mMediaPlayer = null;
-            // Regardless of whether or not we were granted audio focus, abandon it. This also
-            // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
-            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
-
+        @Override
+        public void onStop() {
+            super.onStop();
+            releaseMediaPlayer();
         }
+
+
+
+        /**
+         * HELPER METHOD Clean up the media player by releasing its resources.
+         */
+        private void releaseMediaPlayer() {
+            // If the media player is not null, then it may be currently playing a sound.
+            if (mMediaPlayer != null) {
+                // Regardless of the current state of the media player, release its resources
+                // because we no longer need it.
+                mMediaPlayer.release();
+
+                // Set the media player back to null. For our code, we've decided that
+                // setting the media player to null is an easy way to tell that the media player
+                // is not configured to play an audio file at the moment.
+                mMediaPlayer = null;
+                // Regardless of whether or not we were granted audio focus, abandon it. This also
+                // unregisters the AudioFocusChangeListener so we don't get anymore callbacks.
+                mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
+
+            }
     }
 }
-

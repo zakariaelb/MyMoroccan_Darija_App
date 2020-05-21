@@ -17,7 +17,7 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NumberFragment extends Fragment {
+public class PhrasesFragment extends Fragment {
 
     private MediaPlayer mMediaPlayer;
     private AudioManager mAudioManager;
@@ -52,10 +52,10 @@ public class NumberFragment extends Fragment {
         }
     };
 
-
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
+            releaseMediaPlayer();
         }
     };
 
@@ -64,34 +64,30 @@ public class NumberFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.words_list, container, false);
-
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
-        //LinearLayout NumRootView = (LinearLayout) findViewById(R.id.RootView);
-        final ArrayList<Words> word_s = new ArrayList<Words>();
-        //Words w = new Words("One, Ouahed");
-        //Word_s.add(w);
-        word_s.add(new Words(R.mipmap.ic_launcher, "One", "Ouahed", R.raw.color_black));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Tow", "Jouj", R.raw.color_red));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Three", "Talata", R.raw.color_white));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Four", "Rabaa", R.raw.color_black));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Five", "Khamssa", R.raw.color_red));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Six", "Sst'a", R.raw.color_white));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Seven", "Sab'a", R.raw.color_black));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Eight", "Tmaniya", R.raw.color_red));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Nine", "Tiss'a", R.raw.color_white));
-        word_s.add(new Words(R.mipmap.ic_launcher, "Ten", "Achara", R.raw.color_black));
-        //words.add("One");
-        //words.add("Two");
+        final ArrayList<Words> Colors = new ArrayList<Words>();
+        Colors.add(new Words("Where are you going?", "Kidayer ?",
+                R.raw.color_black));
+        Colors.add(new Words("What is your name?", "Chno smitek ?", R.raw.color_red));
+        Colors.add(new Words("My name is...", "Smiyti ...", R.raw.color_white));
+        Colors.add(new Words("How are you feeling?", "Kidayer ?", R.raw.color_black));
+        Colors.add(new Words("I’m feeling good.", "Labass.", R.raw.color_red));
+        Colors.add(new Words("Are you coming?", "Wach radi tji ?", R.raw.color_white));
+        Colors.add(new Words("Yes, I’m coming.", "ah, ana jay.", R.raw.color_black));
+        Colors.add(new Words("I’m coming.", "Ana jay", R.raw.color_red));
+        Colors.add(new Words("Let’s go.", "Yalah.", R.raw.color_white));
+        Colors.add(new Words("Come here", "Aji hna", R.raw.color_black));
 
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), word_s, R.color.Number);
-        ListView ListView = (ListView) rootView.findViewById(R.id.List);
-        ListView.setAdapter(itemsAdapter);
-        ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        WordAdapter word_Adapter = new WordAdapter(getActivity(), Colors, R.color.Phrases);
+
+        ListView PhrasesView = (ListView) rootView.findViewById(R.id.List);
+        PhrasesView.setAdapter(word_Adapter);
+        PhrasesView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //Toast.makeText(NumberActivity.this, "Hello ! ", Toast.LENGTH_LONG).show();
                 releaseMediaPlayer();
-                Words Words = word_s.get(position);
+                Words Words = Colors.get(position);
 
                 // Request audio focus so in order to play the audio file. The app needs to play a
                 // short audio file, so we will request audio focus with a short amount of time
@@ -118,7 +114,6 @@ public class NumberFragment extends Fragment {
 
         return rootView;
     }
-
 
     @Override
     public void onStop() {
@@ -147,4 +142,3 @@ public class NumberFragment extends Fragment {
         }
     }
 }
-
