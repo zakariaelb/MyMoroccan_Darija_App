@@ -9,9 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <activity
+            android:name=".NumberActivity"
+            android:label="@string/Numbers"
+            android:parentActivityName=".MainActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
         <activity android:name=".ColorsActivity" android:label="@string/Colors"/>
         <activity android:name=".FamilyActivity" android:label="@string/Family"/>
-        <activity android:name=".NumberActivity" android:label="@string/Numbers"/>
         <activity android:name=".PhrasesActivity" android:label="@string/Phrases"/>
         <activity android:name=".MainActivity">
             <intent-filter>
