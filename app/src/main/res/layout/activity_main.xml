@@ -1,43 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
+ <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
             android:padding="16dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-        <Button
-            android:id="@+id/button"
-            android:background="?android:attr/selectableItemBackground"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ViewPager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Numbers" />
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="FamilyList"
-            android:text="@string/Family" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="ColorList"
-            android:text="@string/Colors" />
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="PhrasesList"
-            android:text="@string/Phrases" />
+            android:layout_height="match_parent" />
     </LinearLayout>
-</ScrollView>
